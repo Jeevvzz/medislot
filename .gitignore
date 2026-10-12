@@ -1,0 +1,20 @@
+# Maven / Java output
+**/target/
+*.class
+
+# Local-only H2 files
+**/data/
+*.db
+*.db-*
+*.mv.db
+*.trace.db
+
+# Local environment and logs
+.env
+.env.*
+!.env.example
+secrets/
+**/secrets/
+*.secret
+*.log
+.DS_Store

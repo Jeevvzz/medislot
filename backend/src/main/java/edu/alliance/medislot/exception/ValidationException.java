@@ -1,0 +1,1 @@
+package edu.alliance.medislot.exception; public class ValidationException extends Exception {public ValidationException(String m){super(m);}}

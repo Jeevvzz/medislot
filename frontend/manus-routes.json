@@ -1,0 +1,8 @@
+{
+  "routes": [
+    {"path": "/", "title": "MediSlot Demo"},
+    {"path": "/login.html", "title": "Sign in | MediSlot"},
+    {"path": "/bills/print.jsp", "title": "Printable demo bill | MediSlot"},
+    {"path": "/prescriptions/print.jsp", "title": "Printable demo prescription | MediSlot"}
+  ]
+}

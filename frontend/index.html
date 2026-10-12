@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>MediSlot | Care, in sync</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/design.css">
+  <script src="/js/theme.js"></script>
+</head>
+<body>
+  <div class="shell">
+    <aside class="glass sidebar">
+      <a class="brand" href="/">✦ <span>MediSlot<small>CARE, IN SYNC</small></span></a>
+      <p class="label">WORKSPACE</p>
+      <nav aria-label="Workspace navigation">
+        <a class="active" href="/">⌂ &nbsp;Overview</a>
+        <a href="#doctors">✚ &nbsp;Doctors</a>
+        <a class="patient-link" href="#appointments">▦ &nbsp;Appointments</a>
+        <a class="patient-link" href="#favorites">♡ &nbsp;Favorites</a>
+        <a class="patient-link" href="#history">▤ &nbsp;History &amp; bills</a>
+        <a class="doctor-link" href="#schedule">◷ &nbsp;My schedule</a>
+        <a class="doctor-link" href="#doctor-profile">◉ &nbsp;My profile</a>
+        <a class="doctor-link" href="#consultations">✎ &nbsp;Consultations</a>
+        <a class="doctor-link" href="#doctor-prescriptions">▤ &nbsp;Prescriptions</a>
+        <a class="doctor-link" href="#doctor-queue">◷ &nbsp;Today's queue</a>
+        <a class="schedule-link" href="#time-requests">↔ &nbsp;Time requests</a>
+        <a class="admin-link" href="#reports">⚙ &nbsp;Administration</a>
+        <a class="admin-link" href="#order-admin">▣ &nbsp;Order queue</a>
+        <a class="patient-link" href="#pharmacy">＋ &nbsp;Pharmacy</a>
+        <a class="patient-link" href="#care-tools">✧ &nbsp;Care tools</a>
+      </nav>
+      <div class="sidebar-note">✧<b>Here for your health</b><small>Your care journey, made a little simpler.</small></div>
+      <button id="logout" class="text hidden">↪ Sign out</button>
+    </aside>
+    <main>
+      <div class="demo-warning" role="note"><strong>Public demo.</strong> Use only the sample accounts; do not enter real personal, patient, or medical information.</div>
+      <header class="top"><div><small>YOUR WELLNESS MATTERS</small><h1 id="welcome">A better day starts with care.</h1></div><div class="top-actions"><button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false"><span data-theme-icon>◐</span><span data-theme-label>Dark mode</span></button><a id="profile" class="avatar" href="/login.html" aria-label="Sign in">?</a></div></header>
+      <section class="hero glass" id="auth">
+        <div><span class="pill">YOUR CARE, THOUGHTFULLY CONNECTED</span><h2>Care that fits<br><em>your life.</em></h2><p>Meet trusted doctors, find a time that works, and keep your health journey in one calm place.</p><a class="button" href="/login.html">Get started&nbsp; →</a> <a class="button secondary" href="/login.html#register">Create account</a></div>
+        <div class="art"><div class="circle">✚</div><small>A little more peace<br>in every appointment.</small></div>
+      </section>
+      <section class="section"><small>A GOOD PLACE TO BEGIN</small><h2>Discover your care team</h2></section>
+      <section id="doctors" class="grid"><div class="glass empty">Sign in to discover your care team.</div></section>
+
+      <section id="doctor-detail" class="glass panel hidden" aria-live="polite">
+        <span class="pill">DOCTOR PROFILE</span><h2 id="detail-name">Meet your doctor</h2>
+        <p id="detail-specialty" class="muted"></p><p id="detail-bio"></p><small id="detail-languages" class="muted"></small>
+        <div class="field-row"><label>Check a date<input id="detail-date" type="date"></label><button id="detail-slots-button" class="button" type="button">Show available times</button></div>
+        <p id="detail-slots" class="status-line" aria-live="polite"></p>
+      </section>
+
+      <section id="dashboard" class="glass panel hidden"><span class="pill">YOUR MEDISLOT DASHBOARD</span><h2 id="role-title">Your care, in sync.</h2><p id="role-desc">Your MediSlot workspace is ready.</p><div class="stats"><div class="glass"><small>ACCOUNT</small><b id="dash-name">—</b></div><div class="glass"><small>ROLE</small><b id="dash-role">—</b></div><div class="glass"><small>PHASE STATUS</small><b>Phases 1–5 demo</b></div></div><div class="dashboard-links"><a href="#doctors">Explore doctors →</a><a class="patient-link" href="#appointments">Appointments →</a><a class="doctor-link" href="#schedule">My schedule →</a></div></section>
+
+      <section id="patient-booking" class="glass panel hidden patient-workspace">
+        <span class="pill">FIND A TIME THAT FITS</span><h2>Book an appointment</h2>
+        <form id="booking-form" class="feature-form">
+          <label>Doctor<select id="booking-doctor" required></select></label>
+          <label>Date<input id="booking-date" type="date" required></label>
+          <div class="field-row"><button id="load-slots" class="button secondary" type="button">Show available times</button><label class="slot-field">Available start<select id="booking-time" required><option value="">Choose a date and doctor first</option></select></label></div>
+          <button class="button" type="submit">Book this time</button><p id="booking-message" class="status-line" aria-live="polite"></p>
+        </form>
+      </section>
+
+      <section id="appointments" class="glass panel hidden">
+        <span id="schedule" class="section-anchor"></span>
+        <span class="pill">YOUR CARE, CLEARLY ORGANIZED</span><h2 id="appointments-title">Appointments</h2>
+        <div id="appointment-list" class="card-list"><p class="muted">Sign in to view appointments.</p></div>
+      </section>
+
+      <section id="favorites" class="glass panel hidden patient-workspace">
+        <span class="pill">YOUR CARE TEAM</span><h2>Favorite doctors</h2>
+        <div id="favorite-list" class="card-list"><p class="muted">Your saved doctors will appear here.</p></div>
+      </section>
+
+      <section id="history" class="glass panel hidden patient-workspace" aria-labelledby="history-title">
+        <span class="pill">YOUR VISIT HISTORY</span><h2 id="history-title">History &amp; bills</h2>
+        <p class="muted">Your completed visits and synthetic demo invoices, in one place.</p>
+        <div id="history-list" class="card-list" aria-live="polite"><p class="muted">Sign in to view your history.</p></div>
+      </section>
+
+      <section id="time-requests" class="glass panel hidden">
+        <span class="pill">A THOUGHTFUL WAY TO RESCHEDULE</span><h2>Time requests</h2>
+        <p class="muted">Review proposed appointment times. Only the other appointment participant can accept or decline.</p>
+        <div id="time-request-list" class="card-list"><p class="muted">No time requests yet.</p></div>
+      </section>
+
+      <section id="consultations" class="glass panel hidden doctor-workspace" aria-labelledby="consultations-title">
+        <span class="pill">AFTER THE VISIT</span><h2 id="consultations-title">Consultations</h2>
+        <p class="muted">Complete an assigned visit only after its scheduled time. Saving the required note, diagnosis, and treatment also issues one synthetic invoice.</p>
+        <div id="consultation-list" class="card-list" aria-live="polite"><p class="muted">Sign in as a doctor to review assigned appointments.</p></div>
+      </section>
+
+      <section id="doctor-profile" class="glass panel hidden doctor-workspace">
+        <span class="pill">YOUR DOCTOR PROFILE</span><h2>Profile and availability</h2>
+        <form id="doctor-profile-form" class="feature-form">
+          <label>Profile summary<textarea id="doctor-bio" rows="3" maxlength="600" required></textarea></label>
+          <label>Languages<input id="doctor-languages" maxlength="200" required></label>
+          <button class="button" type="submit">Save profile</button><p id="doctor-profile-message" class="status-line" aria-live="polite"></p>
+        </form>
+        <h3>Weekly availability</h3><p class="muted">Set a 30-minute appointment window for each weekday.</p>
+        <form id="availability-form" class="feature-form">
+          <label>Weekday<select id="availability-weekday"><option value="1">Monday</option><option value="2">Tuesday</option><option value="3">Wednesday</option><option value="4">Thursday</option><option value="5">Friday</option><option value="6">Saturday</option><option value="7">Sunday</option></select></label>
+          <div class="field-row"><label>Starts<input id="availability-start" type="time" step="1800" value="09:00" required></label><label>Ends<input id="availability-end" type="time" step="1800" value="17:00" required></label></div>
+          <button class="button" type="submit">Save availability</button><p id="availability-message" class="status-line" aria-live="polite"></p>
+        </form>
+        <div id="availability-list" class="card-list"></div>
+      </section>
+
+      <section id="reports" class="glass panel hidden" aria-labelledby="reports-title">
+        <span class="pill">ADMINISTRATION · SYNTHETIC DATA</span><h2 id="reports-title">Operational &amp; billing reports</h2>
+        <p class="muted">Aggregate totals only. This view never includes patient names or clinical details.</p>
+        <form id="report-form" class="feature-form report-filter">
+          <div class="field-row"><label>From<input id="report-from" type="date" required></label><label>Through<input id="report-to" type="date" required></label></div>
+          <button class="button" type="submit">Update report</button>
+        </form>
+        <div id="report-results" class="card-list" aria-live="polite"><p class="muted">Choose a date range to view aggregate demo totals.</p></div>
+      </section>
+
+      <section id="pharmacy" class="glass panel hidden patient-workspace">
+        <span class="pill">PHASE 4 · MOCK PHARMACY</span><h2>Medicine catalog</h2>
+        <form id="catalog-search-form" class="feature-form"><label>Search medicine or category<input id="catalog-query" maxlength="100"></label><button class="button secondary" type="submit">Search</button></form>
+        <div id="catalog-results" class="card-list" aria-live="polite"></div><h3>Your cart</h3><div id="cart-results" class="card-list"></div>
+        <button id="checkout-button" class="button" type="button">Place mock order</button><p id="checkout-message" class="status-line" aria-live="polite"></p>
+        <h3>Orders</h3><div id="order-results" class="card-list"></div>
+        <h3>Prescriptions</h3><div id="prescription-results" class="card-list"></div>
+      </section>
+      <section id="doctor-prescriptions" class="glass panel hidden doctor-workspace">
+        <span class="pill">PHASE 3 · PRESCRIPTIONS</span><h2>Write a prescription</h2>
+        <form id="prescription-form" class="feature-form"><label>Completed appointment<select id="prescription-appointment" required></select></label>
+          <label>Medicine<select id="prescription-medicine" required></select></label><div class="field-row"><label>Dosage / directions<input id="prescription-dosage" maxlength="200" required></label><label>Quantity<input id="prescription-quantity" type="number" min="1" max="100" value="1" required></label></div>
+          <label>Additional instructions<textarea id="prescription-instructions" maxlength="2000"></textarea></label><button class="button" type="submit">Save prescription</button><p id="prescription-message" class="status-line" aria-live="polite"></p></form>
+      </section>
+      <section id="order-admin" class="glass panel hidden admin-workspace">
+        <span class="pill">PHASE 4 · ORDER MANAGEMENT</span><h2>Mock pharmacy orders</h2>
+        <p class="muted">Admin-only order status updates. Checkout is a simulation; no payment or medicine dispensing occurs.</p>
+        <div id="admin-order-results" class="card-list"></div>
+      </section>
+      <section id="doctor-queue" class="glass panel hidden doctor-workspace">
+        <span class="pill">PHASE 5 · TODAY'S QUEUE</span><h2>Waiting patients</h2><div id="doctor-queue-results" class="card-list"></div>
+      </section>
+      <section id="care-tools" class="glass panel hidden patient-workspace">
+        <span class="pill">PHASE 5 · CARE TOOLS</span><h2>Care navigation</h2><p class="muted">Demo guidance only—not medical advice. Do not enter real medical information.</p>
+        <form id="specialty-form" class="feature-form"><label>What kind of care are you looking for?<input id="symptom-text" maxlength="1200" required></label><button class="button secondary" type="submit">Suggest a specialty</button></form><p id="specialty-result" class="status-line" aria-live="polite"></p>
+        <h3>Today's queue</h3><form id="queue-form" class="feature-form"><label>Today's appointment<select id="queue-appointment" required></select></label><button class="button secondary" type="submit">Get queue token</button></form><div id="queue-result" class="card-list"></div>
+        <h3>In-app reminders</h3><div id="reminder-results" class="card-list"></div><h3>Health timeline</h3><div id="timeline-results" class="card-list"></div>
+      </section>
+      <button id="assistant-launcher" class="assistant-launcher" type="button" aria-controls="assistant-panel" aria-expanded="false" hidden><span class="assistant-mark" aria-hidden="true">✦</span><span>MediSlot assistant</span></button>
+      <section id="assistant-panel" class="assistant-panel" role="dialog" aria-modal="false" aria-labelledby="assistant-heading" hidden>
+        <header class="assistant-head"><div class="assistant-title"><span class="assistant-mark" aria-hidden="true">✦</span><span><b id="assistant-heading">Your care navigator</b><small>Private by default · demo guidance</small></span></div><button id="assistant-close" class="assistant-close" type="button" aria-label="Close assistant">×</button></header>
+        <div id="assistant-messages" class="assistant-messages" role="log" aria-live="polite" aria-relevant="additions text"><div class="assistant-message">Hi! I can help you find your way around MediSlot, review a safe summary of your own activity, and find useful reminders. I can’t diagnose or give medical advice.</div></div>
+        <div class="assistant-quick" aria-label="Suggested questions"><button type="button" data-assistant-prompt="What should I remember about my upcoming appointments?">My appointments</button><button type="button" data-assistant-prompt="Where can I find my saved doctors?">My care team</button><button type="button" data-assistant-prompt="Help me find pharmacy orders or reminders">Orders &amp; reminders</button></div>
+        <div class="assistant-compose"><form id="assistant-chat-form"><label class="sr-only" for="assistant-chat-input">Ask MediSlot assistant</label><input id="assistant-chat-input" type="text" maxlength="1200" placeholder="Ask about MediSlot…" autocomplete="off" required><button class="assistant-send" type="submit" aria-label="Send message">↑</button></form><label class="assistant-consent"><input id="assistant-context-consent" type="checkbox"><span>Include my minimized MediSlot summary. If Groq is enabled, your message and this summary are sent for this reply only; diagnoses, notes, treatments, prescriptions, and medicine names are excluded.</span></label><p class="assistant-disclaimer">Academic demo only. Don’t share real personal or medical information. Not a diagnosis or substitute for professional care.</p><p id="assistant-chat-status" class="sr-only" role="status" aria-live="polite"></p></div>
+      </section>
+      <footer>© 2026 MediSlot · Thoughtful care, made simpler.</footer>
+    </main>
+  </div>
+  <script src="/js/api.js"></script><script src="/js/home.js"></script><script src="/js/phase45.js"></script><script src="/js/assistant.js"></script>
+</body>
+</html>

@@ -1,0 +1,1 @@
+package edu.alliance.medislot.model; public final class Patient extends User {public Patient(long id,String name,String email){super(id,name,email,Role.PATIENT);}}

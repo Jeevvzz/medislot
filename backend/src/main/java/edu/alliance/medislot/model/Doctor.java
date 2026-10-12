@@ -1,0 +1,1 @@
+package edu.alliance.medislot.model; public final class Doctor extends User {private final String specialty;public Doctor(long id,String name,String email,String specialty){super(id,name,email,Role.DOCTOR);this.specialty=specialty;}public String getSpecialty(){return specialty;}}
